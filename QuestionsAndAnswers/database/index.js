@@ -4,7 +4,8 @@ mongoose.connect('mongodb://localhost/qaservice', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
-  useCreateIndex: true
+  useCreateIndex: true,
+  autoIndex: false,
 })
 .catch ((err) => console.error('Error connecting to Mongoose'))
 .then((result) => console.log('Mongoose is connected!'))
