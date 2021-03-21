@@ -4,7 +4,8 @@
   "description": "Project-Catwalk QA Service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon Server/index.js --exec\"npm run lint && node\""
   },
   "author": "sereigh",
   "license": "ISC",
