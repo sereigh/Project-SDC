@@ -1,0 +1,16 @@
+{
+  "name": "questionsandanswers",
+  "version": "1.0.0",
+  "description": "Project-Catwalk QA Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sereigh",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
