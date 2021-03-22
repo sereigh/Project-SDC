@@ -14,7 +14,7 @@ exports.saveQuestion = (data, cb) => {
 exports.saveAnswer = (data, cb) => {
   let obj = { "body": data.body, "answerer_name": data.name, "answerer_email": data.email, "question_id": data.question_id }
 
-  Answer(obj).save((err, result) => {
+  db.Answer(obj).save((err, result) => {
     if (err) { cb(err, null) }
     else { cb(null, result) }
   })
