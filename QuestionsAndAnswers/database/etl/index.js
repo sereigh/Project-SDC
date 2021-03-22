@@ -13,7 +13,10 @@ mongoose.connect('mongodb://127.0.0.1/27017:qaservice', {
 // Questions
 
 const questionsSchema = mongoose.Schema({
-  product_id: Number,
+  product_id: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'Product'
+  }],
   question_id: {type: Number, unique: true},
   question_body: {type: String, unique: true},
   question_date: String,
@@ -21,7 +24,10 @@ const questionsSchema = mongoose.Schema({
   asker_email: String,
   question_helpfulness: Number,
   report: Boolean,
-  answers: [answersSchema],
+  answers: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'Answer'
+  }],
   }, { _id : false });
 
   const Question = mongoose.model('Question', questionsSchema);
@@ -30,14 +36,20 @@ const questionsSchema = mongoose.Schema({
 
 const answersSchema = mongoose.Schema({
   answer_id: {type: Number, unique: true},
-  question_id: Number,
+  question_id: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'Question'
+  }],
   body: {type: String, unique: true},
   date: String,
   answerer_name: String,
   answerer_email: String,
   helpfulness: Number,
   report: Boolean,
-  photos: [photosSchema],
+  photos: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'Photo'
+  }],
   }, { _id : false });
 
   const Answer = mongoose.model('Answer', answersSchema);
@@ -46,7 +58,10 @@ const answersSchema = mongoose.Schema({
 
 const photosSchema = mongoose.Schema({
   photo_id: {type: Number, unique: true},
-  answer_id: Number,
+  answer_id: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'Answer'
+  }],
   url: {type: String, unique: true},
   }, { _id : false });
 
@@ -63,14 +78,18 @@ const Report = mongoose.model('Report', reportSchema);
 
 const productsSchema = mongoose.Schema({
   product_id: {type: String, unique: true},
-  results: [questionsSchema],
+  results: [{
+    type: mongoose.Schema.Types.Number,
+    ref: 'Question'
+  }],
 }, { _id : false })
 
-const Report = mongoose.model('Report', reportSchema);
+const Product = mongoose.model('Product', reportSchema);
 
 module.exports = {
   Answer: Answer,
   Question: Question,
   Photo: Photo,
   Report: Report,
+  Product: Product,
 }

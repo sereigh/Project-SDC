@@ -1,5 +1,5 @@
 const { formatAnswers, formatQuestions, formatPhotos } = require('./format.js')
-const { loadAnswers, loadQuestions, loadPhotos } = ('/load.js')
+const { loadAnswers, loadQuestions, loadPhotos } = require('./load.js')
 
 const splitEntry = (entry) => entry.split(',')
 
@@ -12,7 +12,6 @@ exports.parseData = (entries, headers, cb) => {
       }),
         {}
       ))
-    addToCount()
   })
   return cb(null, objs, transformData)
 }

@@ -1,5 +1,5 @@
 const fs = require('fs')
-const parseData = require('./transform.js')
+const { parseData } = require('./transform.js')
 
 exports.extractData = (file, headers, tag, cb) => {
   const stream = fs.createReadStream(file).setEncoding('UTF8')

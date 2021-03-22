@@ -1,5 +1,5 @@
 
-const formatQuestions = (data, cb) => {
+exports.formatQuestions = (data, cb) => {
   const result = data.map((record) => (
     {
       "product_id": Number(record.product_id),
@@ -14,7 +14,7 @@ const formatQuestions = (data, cb) => {
   return cb(null, result)
 }
 
-const formatAnswers = (data, cb) => {
+exports.formatAnswers = (data, cb) => {
   const result = data.map((record) => (
     {
       "id": Number(record.id),
@@ -29,7 +29,7 @@ const formatAnswers = (data, cb) => {
   return cb(null, result)
 }
 
-const formatPhotos = (data, cb) => {
+exports.formatPhotos = (data, cb) => {
   const result = data.map((record) => (
     {
       "id": Number(record.id),
