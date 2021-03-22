@@ -1,0 +1,32 @@
+version: "1"
+services:
+       qa-service:
+           container_name: qa-api
+           image: qaservice
+           restart: always
+           build: .
+           ports:
+             - "8080:8080"
+           links:
+             - qa-dbms
+       qa-dbms:
+             container_name: qa-dbms
+             image: mongo:4.4.4
+             environment:
+              - MONGO_INITDB_DATABASE=qaservice
+              - MONGO_INITDB_ROOT_USERNAME=root
+              - MONGO_INITDB_ROOT_PASSWORD=rfp51-pineapple
+             volumes:
+               - ./mongo/data:/data/db
+             restart: always
+             ports:
+               - '27018:27017'
+       mongo-seed:
+         image: mongo:4.4.4
+         links:
+           -qa-dbms
+           depends_on:
+             -qa-dbms
+             command: [
+               "mongoimport --host qa-dbms"
+             ]
