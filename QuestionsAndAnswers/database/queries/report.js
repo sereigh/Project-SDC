@@ -9,8 +9,9 @@ exports.markQuestionReported = (pId, cb) => {
       if (err) { cb(err, null) }
       else {
         cb(null, result)
-        db.Report.findOneAndUpdate({"id": `0${id}`}, {$inc: { "reports": 1 }}, {upsert: true},
-        (err) =>  (err && console.error('Reporting error ', err)))}
+        db.Report.findOneAndUpdate({ "id": `0${id}` }, { $inc: { "reports": 1 } }, { upsert: true },
+          (err) => (err && console.error('Reporting error ', err)))
+      }
     })
 }
 
@@ -21,6 +22,8 @@ exports.markAnswerReported = (qId, cb) => {
       if (err) { cb(err, null) }
       else {
         cb(null, result)
-        db.Report.findOneAndUpdate({"id": `00${id}`}, {$inc: { "reports": 1 }}, {upsert: true},
-        (err) =>  (err && console.error('Reporting error ', err))) }
+        db.Report.findOneAndUpdate({ "id": `0${id}` }, { $inc: { "reports": 1 } }, { upsert: true },
+          (err) => (err && console.error('Reporting error ', err)))
+      }
+    })
 }

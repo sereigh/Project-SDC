@@ -11,7 +11,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/qaservice', {
   .catch((err) => console.error('Error connecting the ETL to Mongoose'))
   .then((result) => console.log('The ETL process has connected to Mongoose!'))
 
-  // Photos
+// Photos
 
 const photosSchema = mongoose.Schema({
   photo_id: { type: Number, unique: true },
@@ -23,6 +23,7 @@ const photosSchema = mongoose.Schema({
 }, { _id: false });
 
 const Photo = mongoose.model('Photo', photosSchema);
+photosSchema.plugin(AutoIncrement, { inc_field: 'photo_id', disable_hooks: true, collection_name: 'indexes' }, { _id: false });
 
 // Answers
 
@@ -37,7 +38,7 @@ const answersSchema = mongoose.Schema({
   answerer_name: String,
   answerer_email: String,
   helpfulness: Number,
-  report: Boolean,
+  report: Boolean,  //set default
   photos: [{
     type: mongoose.Schema.Types.Number,
     ref: 'Photo'
@@ -45,6 +46,7 @@ const answersSchema = mongoose.Schema({
 }, { _id: false });
 
 const Answer = mongoose.model('Answer', answersSchema);
+answersSchema.plugin(AutoIncrement, { inc_field: 'answer_id', disable_hooks: true, collection_name: 'indexes' }, { _id: false });
 
 // Questions
 
@@ -59,7 +61,7 @@ const questionsSchema = mongoose.Schema({
   asker_name: String,
   asker_email: String,
   question_helpfulness: Number,
-  report: Boolean,
+  report: Boolean, //set defaults
   answers: [answersSchema],
 }, { _id: false });
 

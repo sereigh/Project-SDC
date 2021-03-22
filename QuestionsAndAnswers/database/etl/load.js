@@ -16,15 +16,15 @@ exports.loadQuestions = (entries, cb) => {
 }
 
 exports.loadAnswers = (entries, cb) => {
-    Answer.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
-      if (err) { return cb(err, null) }
-      else { return cb(null, result) }
-    })
+  Answer.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
+    if (err) { return cb(err, null) }
+    else { return cb(null, result) }
+  })
 }
 
 exports.loadPhotos = (entries, cb) => {
-    Photo.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
-      if (err) { return cb(err, null) }
-      else { return cb(null, result) }
-    })
+  Photo.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
+    if (err) { return cb(err, null) }
+    else { return cb(null, result) }
+  })
 }
