@@ -4,7 +4,7 @@ const { extractData }= require('./extract.js')
 
 const qHeaders = ["product_id", "question_id", "question_body", "question_date", "asker_name", "asker_email", "question_helpfulness", "reported"]
 
-console.time('../../questions.csv', 'extractData')
+console.time('extractData')
 console.timeEnd('extractData')
 
 extractData('../../questions.csv', qHeaders, 'q', (err, result) => {

@@ -1,6 +1,13 @@
 const mongoose = require('mongoose')
 const { Answer, Question, Photo, Report, Product } = require('./index.js')
 
+exports.loadProducts = (entries, cb) => {
+  Product.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
+    if (err) { return cb(err, null) }
+    else { return cb(null, result) }
+  })
+}
+
 exports.loadQuestions = (entries, cb) => {
   Question.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
     if (err) { return cb(err, null) }

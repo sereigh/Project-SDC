@@ -1,46 +1,38 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-mongoose.connect('mongodb://127.0.0.1/27017:qaservice', {
+mongoose.connect('mongodb://127.0.0.1:27017/qaservice', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
   useCreateIndex: true,
   autoIndex: false,
 })
-.catch((err) => console.error('Error connecting the ETL to Mongoose'))
-.then((result) => console.log('The ETL process has connected to Mongoose!'))
+  .catch((err) => console.error('Error connecting the ETL to Mongoose'))
+  .then((result) => console.log('The ETL process has connected to Mongoose!'))
 
-// Questions
+  // Photos
 
-const questionsSchema = mongoose.Schema({
-  product_id: [{
-    type: mongoose.Schema.Types.Number,
-    ref: 'Product'
-  }],
-  question_id: {type: Number, unique: true},
-  question_body: {type: String, unique: true},
-  question_date: String,
-  asker_name: String,
-  asker_email: String,
-  question_helpfulness: Number,
-  report: Boolean,
-  answers: [{
+const photosSchema = mongoose.Schema({
+  photo_id: { type: Number, unique: true },
+  answer_id: [{
     type: mongoose.Schema.Types.Number,
     ref: 'Answer'
   }],
-  }, { _id : false });
+  url: { type: String, unique: true },
+}, { _id: false });
 
-  const Question = mongoose.model('Question', questionsSchema);
+const Photo = mongoose.model('Photo', photosSchema);
 
-  // Answers
+// Answers
 
 const answersSchema = mongoose.Schema({
-  answer_id: {type: Number, unique: true},
+  answer_id: { type: Number, unique: true },
   question_id: [{
     type: mongoose.Schema.Types.Number,
     ref: 'Question'
   }],
-  body: {type: String, unique: true},
+  body: { type: String, unique: true },
   date: String,
   answerer_name: String,
   answerer_email: String,
@@ -50,41 +42,55 @@ const answersSchema = mongoose.Schema({
     type: mongoose.Schema.Types.Number,
     ref: 'Photo'
   }],
-  }, { _id : false });
+}, { _id: false });
 
-  const Answer = mongoose.model('Answer', answersSchema);
+const Answer = mongoose.model('Answer', answersSchema);
 
-  // Photos
+// Questions
 
-const photosSchema = mongoose.Schema({
-  photo_id: {type: Number, unique: true},
-  answer_id: [{
+const questionsSchema = mongoose.Schema({
+  product_id: [{
     type: mongoose.Schema.Types.Number,
-    ref: 'Answer'
+    ref: 'Product'
   }],
-  url: {type: String, unique: true},
-  }, { _id : false });
+  question_id: { type: Number, unique: true },
+  question_body: { type: String, unique: true },
+  question_date: String,
+  asker_name: String,
+  asker_email: String,
+  question_helpfulness: Number,
+  report: Boolean,
+  answers: [answersSchema],
+}, { _id: false });
 
-  const Photo = mongoose.model('Photo', photosSchema);
 
-  // Reported Q&As
+// {
+//   type: mongoose.Schema.Types.Number,
+//   ref: 'Answer'
+// }
 
- const reportSchema = mongoose.Schema({
-  id: {type: String, unique: true},
-  reports: {type: Number, default: 0},
-}, { _id : false })
+const Question = mongoose.model('Question', questionsSchema);
+questionsSchema.plugin(AutoIncrement, { inc_field: 'question_id', disable_hooks: true, collection_name: 'indexes' }, { _id: false });
 
-const Report = mongoose.model('Report', reportSchema);
+// Reported Q&As
+
+const reportsSchema = mongoose.Schema({
+  id: { type: String, unique: true },
+  reports: { type: Number, default: 0 },
+}, { _id: false })
+
+const Report = mongoose.model('Report', reportsSchema);
 
 const productsSchema = mongoose.Schema({
-  product_id: {type: String, unique: true},
+  product_id: { type: Number, unique: true },
   results: [{
     type: mongoose.Schema.Types.Number,
     ref: 'Question'
   }],
-}, { _id : false })
+}, { _id: false })
 
-const Product = mongoose.model('Product', reportSchema);
+const Product = mongoose.model('Product', productsSchema);
+productsSchema.plugin(AutoIncrement, { inc_field: 'product_id', disable_hooks: true, collection_name: 'indexes' });
 
 module.exports = {
   Answer: Answer,

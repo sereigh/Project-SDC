@@ -1,5 +1,5 @@
 const { formatAnswers, formatQuestions, formatPhotos } = require('./format.js')
-const { loadAnswers, loadQuestions, loadPhotos } = require('./load.js')
+const { loadAnswers, loadQuestions, loadPhotos, loadProducts } = require('./load.js')
 
 const splitEntry = (entry) => entry.split(',')
 
