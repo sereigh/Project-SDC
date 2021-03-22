@@ -1,21 +1,21 @@
 const mongoose = require('mongoose')
 const { Answer, Question, Photo, Report } = require('./index.js')
 
-const saveQuestions = (entries, cb) => {
+exports.saveQuestions = (entries, cb) => {
   Question.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
     if (err) { return cb(err, null) }
     else { return cb(null, result) }
   })
 };
 
-const saveAnswers = (entries, cb) => {
+exports.saveAnswers = (entries, cb) => {
     Answer.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
       if (err) { return cb(err, null) }
       else { return cb(null, result) }
     })
 }
 
-const savePhotos = (entries, cb) => {
+exports.savePhotos = (entries, cb) => {
     Photo.insertMany(entries, { ordered: false, rawResult: true }, (err, result) => {
       if (err) { return cb(err, null) }
       else { return cb(null, result) }
@@ -30,9 +30,3 @@ const savePhotos = (entries, cb) => {
 //     if (err) { return cb(err, null) }
 //     else { return cb(null, result) }
 //   })
-
-module.exports = {
-  saveQuestions: saveQuestions,
-  saveAnswers: saveAnswers,
-  savePhotos: savePhotos,
-};

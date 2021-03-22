@@ -1,9 +1,7 @@
 const fs = require('fs')
-const destroy = require('destroy')
+const parseData = require('./transform.js')
 
-const ut = require('./utility.js')
-
-const extractData = (file, headers, tag, cb) => {
+exports.extractData = (file, headers, tag, cb) => {
   const stream = fs.createReadStream(file).setEncoding('UTF8')
 
   stream.on('error', (err) => {
@@ -13,7 +11,7 @@ const extractData = (file, headers, tag, cb) => {
 
   stream.on('data', (row) => {
     const [...entries] = row.split('\n');
-    ut.parseData(entries, headers, (err, result, transform) => {
+    parseData(entries, headers, (err, result, transform) => {
       if (err) { return cb(err, null) }
       else {
         return transform(tag, result, (err, result, load) => {
@@ -34,29 +32,3 @@ const extractData = (file, headers, tag, cb) => {
 
   stream.on('end', () => console.log('stream is finished'))
 }
-
-// QUESTIONS
-
-// console.time('extractData')
-// console.timeEnd('extractData')
-// extractData(ut.questions, ut.qHeaders, 'q', (err, result) => {
-//   if (err) { return console.error(err) }
-// })
-
-
-// ANSWERS
-
-// console.time('extractData')
-// console.timeEnd('extractData')
-// extractData(ut.answers, ut.aHeaders, 'a', (err, result) => {
-//   if (err) { return console.error(err) }
-// })
-
-
-// PHOTOS
-
-// console.time('extractData')
-// extractData(ut.photos, ut.pHeaders, 'p', (err, result) => {
-//   if (err) { return console.error(err) }
-// })
-// console.timeEnd('extractData')
