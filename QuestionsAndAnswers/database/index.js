@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const { questionsSchema } = require('./schemas/Question.js')
 const { productsSchema } = require('./schemas/Product.js')
@@ -16,6 +17,10 @@ mongoose.connect('mongodb://localhost/qaservice', {
 .catch((err) => console.error('Error connecting to Mongoose'))
 .then((result) => console.log('Mongoose is connected!'))
 
+photosSchema.plugin(AutoIncrement, { inc_field: 'photo_id', collection_name: 'indexes' }, { _id: false })
+answersSchema.plugin(AutoIncrement, { inc_field: 'answer_id', collection_name: 'indexes' }, { _id: false })
+questionsSchema.plugin(AutoIncrement, { inc_field: 'question_id', collection_name: 'indexes' }, { _id: false })
+productsSchema.plugin(AutoIncrement, { inc_field: 'product_id', collection_name: 'indexes' })
 
 exports.Question = mongoose.model('Question', questionsSchema)
 exports.Answer = mongoose.model('Answer', answersSchema)

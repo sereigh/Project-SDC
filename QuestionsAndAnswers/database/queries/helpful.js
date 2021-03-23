@@ -4,7 +4,7 @@ const Question = require('../schemas/Question.js')
 
 exports.markQuestionHelpful = (pId, cb) => {
   db.Question.findOneAndUpdate(
-    { "question_id": id },
+    { "question_id": pId },
     { $inc: { "question_helpfulness": 1 } }, (err, result) => {
       if (err) { cb(err, null) }
       else { cb(null, result) }
@@ -13,7 +13,7 @@ exports.markQuestionHelpful = (pId, cb) => {
 
 exports.markAnswerHelpful = (qId, cb) => {
   db.Answer.findOneAndUpdate(
-    { "answer_id": id },
+    { "answer_id": qId },
     { $inc: { "helpfulness": 1 } }, (err, result) => {
       if (err) { cb(err, null) }
       else { cb(null, result) }

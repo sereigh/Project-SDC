@@ -11,4 +11,4 @@ exports.questionsSchema = mongoose.Schema({
   question_helpfulness: {type: Number, default: 0},
   report: {type: Boolean, default: false},
   answers: {answersSchema},
-}, { _id : false });
+});

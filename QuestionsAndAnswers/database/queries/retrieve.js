@@ -12,7 +12,7 @@ exports.getQuestions = (pId, cb) => {
 
 exports.getAnswers = (qId, cb) => {
   db.Answer.find(
-    { "question_id": params[0] }, (err, result) => {
+    { "question_id": qId }, (err, result) => {
       if (err) { cb(err, null) }
       else { cb(null, result) }
     })

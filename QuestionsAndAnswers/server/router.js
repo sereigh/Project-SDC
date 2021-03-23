@@ -6,10 +6,10 @@ const { question, answer } = require('./routes/post.js')
 const { helpfulAnswer, helpfulQuestion } = require('./routes/helpful.js')
 const { reportAnswer, reportQuestion } = require('./routes/report.js')
 
-// router.route('/')
-//   .get((req, res) => {
-//     res.status(200).send('loaderio-316a11a8d32160d8763d83b6bc233832')
-//   })
+router.route('/')
+  .get((req, res) => {
+    res.status(200).end()
+  })
 
 router.route('/qa/questions')
   .get(questions)

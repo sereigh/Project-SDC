@@ -4,12 +4,12 @@ const Question = require('../schemas/Question.js')
 
 exports.markQuestionReported = (pId, cb) => {
   db.Question.findOneAndUpdate(
-    { "question_id": id }, { "report": true },
+    { "question_id": pId }, { "report": true },
     (err, result) => {
       if (err) { cb(err, null) }
       else {
         cb(null, result)
-        db.Report.findOneAndUpdate({ "id": `0${id}` }, { $inc: { "reports": 1 } }, { upsert: true },
+        db.Report.findOneAndUpdate({ "id": `0${pId}` }, { $inc: { "reports": 1 } }, { upsert: true },
           (err) => (err && console.error('Reporting error ', err)))
       }
     })
@@ -17,12 +17,12 @@ exports.markQuestionReported = (pId, cb) => {
 
 exports.markAnswerReported = (qId, cb) => {
   db.Answer.findOneAndUpdate(
-    { "answer_id": id }, { "report": true },
+    { "answer_id": qId }, { "report": true },
     (err, result) => {
       if (err) { cb(err, null) }
       else {
         cb(null, result)
-        db.Report.findOneAndUpdate({ "id": `0${id}` }, { $inc: { "reports": 1 } }, { upsert: true },
+        db.Report.findOneAndUpdate({ "id": `00${qId}` }, { $inc: { "reports": 1 } }, { upsert: true },
           (err) => (err && console.error('Reporting error ', err)))
       }
     })
