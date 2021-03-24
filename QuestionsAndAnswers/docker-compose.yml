@@ -1,4 +1,4 @@
-version: "1"
+version: "3"
 services:
        qa-api:
            container_name: qa-api
@@ -7,20 +7,22 @@ services:
            build: .
            ports:
              - "8080:8080"
+           volumes:
+             - ./:/code
            links:
              - qa-dbms
        qa-dbms:
              container_name: qa-dbms
              image: mongo:4.4.4
              environment:
-              - MONGO_INITDB_DATABASE=qaservice
+              - MONGO_INITDB_DATABASE=qa-dbms
               - MONGO_INITDB_ROOT_USERNAME=root
               - MONGO_INITDB_ROOT_PASSWORD=rfp51-pineapple
              volumes:
-               - ./mongo/data:/data/db
+               - ./mongodb:/data/db
              restart: always
              ports:
-               - '27018:27017'
+               - '27017:27017'
        mongo-seed:
          image: mongo:4.4.4
          links:
@@ -30,11 +32,5 @@ services:
              command: [
                "mongoimport --host qa-dbms"
              ]
-       qa-test:
-          image: hopsoft/graphite-statsd
-          links: qa-api
-          restart: always
-          volumes:
-            - /path/to/graphite/configs:/opt/graphite/conf\
-            - /path/to/graphite/data:/opt/graphite/storage\
-            - /path/to/statsd:/opt/statsd\
+volumes:
+  mongodb:
