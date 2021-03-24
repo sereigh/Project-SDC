@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { questions, answers } = require('./routes/get.js');
-const { question, answer } = require('./routes/post.js')
-const { helpfulAnswer, helpfulQuestion } = require('./routes/helpful.js')
-const { reportAnswer, reportQuestion } = require('./routes/report.js')
+const { questions, answers } = require('./get.js');
+const { question, answer } = require('./post.js')
+const { helpfulAnswer, helpfulQuestion } = require('./helpful.js')
+const { reportAnswer, reportQuestion } = require('./report.js')
 
 router.route('/')
   .get((req, res) => {
