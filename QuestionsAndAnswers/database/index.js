@@ -7,20 +7,19 @@ const { answersSchema } = require('./schemas/Answer.js')
 const { photosSchema } = require('./schemas/Photo.js')
 const { reportsSchema } = require('./schemas/Report.js')
 
-mongoose.connect('mongodb://localhost/qaservice', {
+mongoose.connect('mongodb://localhost/qa-database', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
   useCreateIndex: true,
-  autoIndex: false,
 })
 .catch((err) => console.error('Error connecting to Mongoose'))
 .then((result) => console.log('Mongoose is connected!'))
 
-photosSchema.plugin(AutoIncrement, { inc_field: 'photo_id', collection_name: 'indexes' }, { _id: false })
-answersSchema.plugin(AutoIncrement, { inc_field: 'answer_id', collection_name: 'indexes' }, { _id: false })
-questionsSchema.plugin(AutoIncrement, { inc_field: 'question_id', collection_name: 'indexes' }, { _id: false })
-productsSchema.plugin(AutoIncrement, { inc_field: 'product_id', collection_name: 'indexes' })
+photosSchema.plugin(AutoIncrement, { _id: 'photo_id', inc_field: 'photo_id' })
+answersSchema.plugin(AutoIncrement, { _id: 'answer_id', inc_field: 'answer_id' })
+questionsSchema.plugin(AutoIncrement, { _id: 'question_id', inc_field: 'question_id' })
+productsSchema.plugin(AutoIncrement, { _id: 'product_id', inc_field: 'product_id' })
 
 exports.Question = mongoose.model('Question', questionsSchema)
 exports.Answer = mongoose.model('Answer', answersSchema)
