@@ -6,3 +6,4 @@ newrelic_agent.log
 newrelic.js
 loaderio-316a11a8d32160d8763d83b6bc233832.txt
 test
+.env

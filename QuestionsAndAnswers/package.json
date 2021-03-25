@@ -1,14 +1,32 @@
 {
-  "name": "questionsandanswers",
+  "name": "qa-service",
   "version": "1.0.0",
-  "description": "Project-Catwalk QA Service",
-  "main": "index.js",
-  "scripts": {},
+  "description": "Project-Catwalk Q&A Service",
+  "main": "./server/index.js",
+  "scripts": {
+    "start": "(cd server && npm run start) & (cd database && npm run start)",
+    "start:dev": "(cd server && npm run start:dev) & (cd database && npm run start)",
+    "lint": "npx eslint . --ext .js",
+    "test": "cd server && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sereigh/Project-SDC.git"
+  },
   "author": "sereigh",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sereigh/Project-SDC/issues"
+  },
+  "homepage": "https://github.com/sereigh/Project-SDC#readme",
   "devDependencies": {
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "@newrelic/native-metrics": "^6.0.0",
+    "dotenv-safe": "^8.2.0",
+    "newrelic": "^7.2.0"
   }
 }

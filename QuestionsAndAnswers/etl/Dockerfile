@@ -1,8 +1,12 @@
 FROM mongo:4.4.4
 WORKDIR /etl
+
 COPY package*.json ./
-RUN npm install
-VOLUME ["/etl/data"]
+
+RUN npm ci --only=production
+
 COPY . .
-EXPOSE 27017
-CMD [ "node", "./index.js" ]
+
+EXPOSE ${DBPORT}
+
+CMD [ "dumb-init", "node", "index.js" ]

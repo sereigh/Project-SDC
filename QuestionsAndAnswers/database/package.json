@@ -1,5 +1,5 @@
 {
-  "name": "database",
+  "name": "qa-dbms",
   "version": "1.0.0",
   "description": "Project-Catwalk Q&A Service - DBMS",
   "main": "index.js",

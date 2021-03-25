@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-mongoose.connect('mongodb://127.0.0.1:27017/qa-dbms', {
+mongoose.connect(`mongodb://${process.env.HOST}}:${process.env.PORT}/${process.env.DB}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

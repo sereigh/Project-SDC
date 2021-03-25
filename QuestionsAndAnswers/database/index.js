@@ -7,7 +7,7 @@ const { answersSchema } = require('./schemas/Answer.js')
 const { photosSchema } = require('./schemas/Photo.js')
 const { reportsSchema } = require('./schemas/Report.js')
 
-mongoose.connect('mongodb://localhost/qa-database', {
+mongoose.connect(`mongodb://${process.env.HOST}}:${process.env.PORT}/${process.env.DB}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

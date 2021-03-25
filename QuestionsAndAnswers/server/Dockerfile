@@ -1,14 +1,14 @@
 FROM node:12.19.0
-ENV NODE_ENV=production
-
 WORKDIR /server
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci --only=production
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE ${PORT}
 
-CMD [ "npm", "start" ]
+USER node
+
+CMD [ "dumb-init", "node", "index.js" ]

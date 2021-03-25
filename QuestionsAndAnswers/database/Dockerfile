@@ -1,13 +1,13 @@
 FROM mongo:4.4.4
-
 WORKDIR /database
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci --only=production
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE ${DBPORT}
+EXPOSE ${PORT}
 
-CMD [ "npm", "start" ]
+CMD [ "dumb-init", "node", "index.js" ]
