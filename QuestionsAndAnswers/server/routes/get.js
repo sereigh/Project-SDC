@@ -1,4 +1,4 @@
-const { getQuestions, getAnswers } = require('../../database/queries/retrieve.js')
+const { getQuestions, getAnswers } = require('../database/queries/retrieve.js')
 
 exports.questions = (req, res) => {
   const pId = req.query.product_id

@@ -1,4 +1,4 @@
-const { markAnswerHelpful, markQuestionHelpful } = require('../../database/queries/helpful.js')
+const { markAnswerHelpful, markQuestionHelpful } = require('../database/queries/helpful.js')
 
 exports.helpfulQuestion = (req, res) => {
   const qId = req.params.question_id

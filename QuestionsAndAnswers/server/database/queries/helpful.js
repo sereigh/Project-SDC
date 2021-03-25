@@ -1,5 +1,5 @@
 const db = require('../index.js')
-const Answer = require('../schemas/Answer.js')
+const Answer = require('../daschemas/Answer.js')
 const Question = require('../schemas/Question.js')
 
 exports.markQuestionHelpful = (pId, cb) => {

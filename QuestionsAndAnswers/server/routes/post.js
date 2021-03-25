@@ -1,4 +1,4 @@
-const { saveQuestion, saveAnswer } = require('../../database/queries/save.js')
+const { saveQuestion, saveAnswer } = require('../database/queries/save.js')
 
 exports.question = (req, res) => {
   const data = req.body

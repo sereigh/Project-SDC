@@ -1,4 +1,4 @@
-const { markAnswerReported, markQuestionReported } = require('../../database/queries/report.js')
+const { markAnswerReported, markQuestionReported } = require('../database/queries/report.js')
 
 exports.reportQuestion = (req, res) => {
   const qId = req.params.question_id

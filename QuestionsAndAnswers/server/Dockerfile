@@ -1,9 +1,13 @@
-FROM node:12.19.0
+FROM node:12.19.0 AS base
 WORKDIR /server
 
 COPY package*.json ./
 
-RUN npm ci --only=production
+FROM base AS dependancies
+
+RUN npm ci --production
+
+FROM dependancies AS qa-api
 
 COPY . .
 
@@ -11,4 +15,4 @@ EXPOSE ${PORT}
 
 USER node
 
-CMD [ "dumb-init", "node", "index.js" ]
+CMD [ "node", "index.js" ]
