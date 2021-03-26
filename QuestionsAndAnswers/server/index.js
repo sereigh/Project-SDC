@@ -3,11 +3,15 @@ const express = require('express');
 const routes = require('./routes/router.js');
 
 if(process.env.NODE_ENV !== "production") {
-  require('dotenv-safe').config();
+  require('dotenv-safe').config({
+    allowEmptyValues: true,
+    example: '.env.example',
+    path: '../env/.env'
+  });
 }
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
