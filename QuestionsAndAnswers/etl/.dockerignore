@@ -6,3 +6,4 @@ docker-compose.yml
 .gitignore
 npm-debug.log
 .cache
+.vscode
