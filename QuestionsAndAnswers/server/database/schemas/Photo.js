@@ -1,10 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-exports.photosSchema = mongoose.Schema({
-  photo_id: { type: Number, index: { unique: true } },
-  answer_id: {
-    type: mongoose.Schema.Types.Number,
-    ref: 'Answer'
+exports.photosSchema = mongoose.Schema(
+  {
+    photo_id: { type: Number, index: { unique: true } },
+    answer_id: {
+      type: mongoose.Schema.Types.Number,
+      ref: "Answer",
+    },
+    url: { type: String, unique: true },
   },
-  url: {type: String, unique: true},
-}, { _id: false })
+  { _id: false }
+);
