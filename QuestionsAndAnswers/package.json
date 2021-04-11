@@ -1,7 +1,7 @@
 {
-  "name": "qa-service",
+  "name": "trendee-qa",
   "version": "1.0.0",
-  "description": "Project-Catwalk Q&A Service",
+  "description": "trendee Q&A Service",
   "main": "./server/index.js",
   "scripts": {
     "start": "(cd server && npm run start) & (cd database && npm run start)",
@@ -27,6 +27,8 @@
   "dependencies": {
     "@newrelic/native-metrics": "^6.0.0",
     "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
     "newrelic": "^7.2.0"
   }
 }
