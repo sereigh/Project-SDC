@@ -29,10 +29,11 @@
 ### Development
 
 > My role in the remote team that developed trendee's backend was re-designing and optimizing the systems of the Questions & Answers Service.
-> 
-There was a unique need to display multiple pieces of relational data in a clean and user friendly way. I chose to display these data points in an accordion style UI to reduce scrolling and support user control. 
- 
- The panel functionality is controlled with a queue-like function I implemented with Javascript, and supported by pure CSS properties and ternary operators that switch element class names to show or hide information based on user interaction.
+
+
+
+> See the [Docker](#Docker) section for more information on how to use the images contained in this repository.
+
  
 >Check out [Operation](#Operation) for an overview of the services' backend functionality or the [Preview](#Preview) below for a demonstration of it's stress test. 
 
@@ -51,18 +52,28 @@ npm start
 ### Operation
 
 - Send an inappropriate question or answer to a collection for review. 
+
   ``/qa/questions/:question_id/report``
+  
   ``/qa/answers/:answer_id/report``
 
 - Vote a question or answer helpful.
+
   ``/qa/questions/:question_id/helpful``
+  
   ``/qa/answers/:answer_id/helpful``
   
 - Retrieve all questions related to a product and their corresponding answers.
+
   ``/qa/questions``
 
 - Retrieve all answers related to a question.
+
   ``/qa/questions/:question_id/answers`` 
+  
+### Docker
+
+![Dockerhub/sereigh]()
 
 ### Preview
 
