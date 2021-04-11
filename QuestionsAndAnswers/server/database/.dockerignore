@@ -1,0 +1,15 @@
+node_modules
+Dockerfile
+.dockerignore
+docker-compose.yml
+test
+test.js
+.git
+.gitignore
+npm-debug.log
+.cache
+.env
+queries
+schemas
+index.js
+routes
