@@ -8,4 +8,4 @@ test.js
 .gitignore
 npm-debug.log
 .cache
-.env
+.vscode

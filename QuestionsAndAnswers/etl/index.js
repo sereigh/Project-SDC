@@ -70,16 +70,6 @@ const questionsSchema = mongoose.Schema({
 const Question = mongoose.model('Question', questionsSchema);
 questionsSchema.plugin(AutoIncrement, { inc_field: 'question_id', disable_hooks: true })
 
-// Reported Q&As
-
-// const reportsSchema = mongoose.Schema({
-//   question_id: { type: String, unique: true, default: 0 },
-//   answer_id: { type: Number, unique: true, default: 0 },
-//   reports: { type: Number, default: 0 },
-// })
-
-// const Report = mongoose.model('Report', reportsSchema);
-
 const productsSchema = mongoose.Schema({
   product_id: { type: Number, index: { unique: true } },
   results: [{
@@ -95,6 +85,5 @@ module.exports = {
   Answer: Answer,
   Question: Question,
   Photo: Photo,
-  // Report: Report,
   Product: Product,
 }
