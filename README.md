@@ -13,6 +13,7 @@
      * [Preview](#Preview)
           * [Screenshots](#Screenshots)
      * [Testing](#Testing)
+     * [Authors](#Authors)
      * [License](#License)
 
 ### Technologies
@@ -28,12 +29,13 @@
 
 ### Development
 
-> My role in the remote team that developed trendee's backend was re-designing and optimizing the systems of the Questions & Answers Service.
+> My role in the remote team that developed trendee's backend was re-designing and optimizing the systems of trendee's Questions & Answers Service. 
 
+To update and transfer the 3mil+ Questions, 12mil+ Answers, and 3mil+ Photos of legacy data, I created and automated an ETL process, using a combination of ___Javascript___, ___Regex___, and ___Node.js___ child processes.  
 
+I chose to implement a noSQL database to store the data, as the needs of the application are primarily read heavy and non-transactional. Using a normalized data model with manual references, supported by ___Mongoose___'s populate method, I was able to reduce decision points in the database and improve latency over the legacy system. 
 
-> See the [Docker](#Docker) section for more information on how to use the images contained in this repository.
-
+Utilizing ___Docker___, I created containers for the backend to maintain a reproducible baseline prior to load testing and blueprint future scalability when deployed to ___AWS___ clusters. 
  
 >Check out [Operation](#Operation) for an overview of the services' backend functionality or the [Preview](#Preview) below for a demonstration of it's stress test. 
 
@@ -73,7 +75,10 @@ npm start
   
 ### Docker
 
-![Dockerhub/sereigh]()
+* ![Service Image](https://hub.docker.com/repository/docker/sereigh/qa-service "Service Image")
+* ![API Image](https://hub.docker.com/repository/docker/sereigh/qa-api "API Image")
+* ![DBMS Image](https://hub.docker.com/repository/docker/sereigh/qa-dbms "DBMS Image")
+* ![ETL Process Image](https://hub.docker.com/repository/docker/sereigh/qa-etl "ETL Process Image")
 
 ### Preview
 
@@ -90,6 +95,13 @@ npm start
 
 Tested using ___Artillery.io___ in development. 
 Tested using ___New Relic___ in production.
+
+### Authors
+
+[Krista Brock](https://github.com/sereigh "Krista Brock")[Questions And Answers Service]
+[Edwin](https://github.com/moogiemode "Edwin Ekpenyong")[Related Products Service]
+[Zach](https://github.com/Prollux "Zachary Shold")[Ratings And Reviews Service]
+
 
 ### License 
 
