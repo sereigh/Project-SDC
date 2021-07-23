@@ -1,6 +1,6 @@
 # trendee
 
-> Retail web portal, scaled for an increase of traffic.
+> Backend service for a retail web portal, operationalized and scaled.
 
 #### Table of Contents
 
@@ -28,22 +28,23 @@
 
 ### Development
 
-> My role in the remote team that developed trendee's backend was re-designing and optimizing it's Questions & Answers Service.
+> My role in the remote team that developed trendee's backend was re-designing and optimizing the systems of trendee's Questions & Answers Service.
 
-I chose to implement a noSQL database to store trendee's 3mil Questions, 12mil Answers, & 3.5mil photos, as the needs of the application are primarily read heavy and non-transactional. I used a normalized data model with manual references, supported by **_Mongoose_**'s populate method, to to reduce decision points in the database and improve latency over the legacy system.
+To update and transfer the 3mil+ Questions, 12mil+ Answers, and 3mil+ Photos of legacy data, I created and automated an ETL process, using a combination of **_Javascript_**, **_Regex_**, and **_Node.js_** child processes.
 
-> Check out [Operation](#Operation) for an overview of trendee's Q & A backend functionality or the [Preview](#Preview) below for a demonstration of it's stress test.
+I chose to implement a noSQL database to store the data, as the needs of the application are primarily read heavy and non-transactional. Using a normalized data model with manual references, supported by **_Mongoose_**'s populate method, I was able to reduce decision points in the database and improve latency over the legacy system.
+
+Utilizing **_Docker_**, I created containers for the backend to maintain a reproducible baseline prior to load testing and blueprint future scalability when deployed to **_AWS_** clusters.
+
+> Check out [Operation](#Operation) for an overview of the services' backend functionality or the [Preview](#Preview) below for a demonstration of it's stress test.
 
 ### Installation
 
 1. Clone repository.
 2. From within the **_QuestionsAndAnswers_** directory:
-
-`npm install`
-
+   `npm install`
 3. From within the **_QuestionsAndAnswers_** directory:
-
-`npm start`
+   `npm start`
 
 ### Operation
 
@@ -69,10 +70,10 @@ I chose to implement a noSQL database to store trendee's 3mil Questions, 12mil A
 
 ### Docker
 
-- [Service Image](https://hub.docker.com/repository/docker/sereigh/qa-service "Service Image")
-- [API Image](https://hub.docker.com/repository/docker/sereigh/qa-api "API Image")
-- [DBMS Image](https://hub.docker.com/repository/docker/sereigh/qa-dbms "DBMS Image")
-- [ETL Process Image](https://hub.docker.com/repository/docker/sereigh/qa-etl "ETL Process Image")
+- ![Service Image](https://hub.docker.com/repository/docker/sereigh/qa-service "Service Image")
+- ![API Image](https://hub.docker.com/repository/docker/sereigh/qa-api "API Image")
+- ![DBMS Image](https://hub.docker.com/repository/docker/sereigh/qa-dbms "DBMS Image")
+- ![ETL Process Image](https://hub.docker.com/repository/docker/sereigh/qa-etl "ETL Process Image")
 
 ### Preview
 
