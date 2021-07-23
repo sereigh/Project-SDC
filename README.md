@@ -1,4 +1,4 @@
-# Project-Catwalk
+# trendee
 
 > Backend service for a retail web portal, operationalized and scaled.
 
@@ -88,13 +88,16 @@ Utilizing **_Docker_**, I created containers for the backend to maintain a repro
 ### Testing
 
 Tested using **_Artillery.io_** in development.
+
 Tested using **_New Relic_** in production.
 
 ### Authors
 
-[Krista Brock](https://github.com/sereigh "Krista Brock")[Questions And Answers Service]
-[Edwin](https://github.com/moogiemode "Edwin Ekpenyong")[Related Products Service]
-[Zach](https://github.com/Prollux "Zachary Shold")[Ratings And Reviews Service]
+[Krista Brock](https://github.com/sereigh "Krista Brock") [Questions And Answers Service]
+
+[Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong") [Related Products Service]
+
+[Zachary Shold](https://github.com/Prollux "Zachary Shold") [Ratings And Reviews Service]
 
 ### License
 
