@@ -56,13 +56,14 @@ Utilizing **_Docker_**, I created containers for the backend to maintain a repro
 
 - Send an inappropriate question or answer to a collection for review.
   `/qa/questions/:question_id/report`
-  
+
   `/qa/answers/:answer_id/report`
 
 - Vote a question or answer helpful.
   `/qa/questions/:question_id/helpful`
-  
+
   `/qa/answers/:answer_id/helpful`
+
 - Retrieve all questions related to a product and their corresponding answers.
   `/qa/questions`
 
@@ -115,7 +116,6 @@ Tested using **_New Relic_** in production.
 [Krista Brock](https://github.com/sereigh "Krista Brock") [Questions And Answers Service]
 
 [Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong") [Related Products Service]
-
 
 ### License
 
