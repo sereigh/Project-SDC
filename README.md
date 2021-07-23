@@ -87,15 +87,16 @@ I chose to implement a noSQL database to store trendee's 3mil Questions, 12mil A
 ### Testing
 
 Tested using **_Artillery.io_** in development.
+
 Tested using **_New Relic_** in production.
 
 ### Authors
 
-[Krista Brock](https://github.com/sereigh "Krista Brock")[Questions And Answers Service]
+[Krista Brock](https://github.com/sereigh "Krista Brock") [Questions And Answers Service]
 
-[Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong")[Related Products Service]
+[Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong") [Related Products Service]
 
-[Zachary Shold](https://github.com/Prollux "Zachary Shold")[Ratings And Reviews Service]
+[Zachary Shold](https://github.com/Prollux "Zachary Shold") [Ratings And Reviews Service]
 
 ### License
 
