@@ -30,6 +30,8 @@
 
 > My role in the remote team that developed trendee's backend was re-designing and optimizing the systems of trendee's Questions & Answers Service.
 
+> See the [Docker](#Docker) section for more information on how to use the images contained in this repository.
+
 To update and transfer the 3mil+ Questions, 12mil+ Answers, and 3mil+ Photos of legacy data, I created and automated an ETL process, using a combination of **_Javascript_**, **_Regex_**, and **_Node.js_** child processes.
 
 I chose to implement a noSQL database to store the data, as the needs of the application are primarily read heavy and non-transactional. Using a normalized data model with manual references, supported by **_Mongoose_**'s populate method, I was able to reduce decision points in the database and improve latency over the legacy system.
@@ -96,8 +98,6 @@ Tested using **_New Relic_** in production.
 [Krista Brock](https://github.com/sereigh "Krista Brock") [Questions And Answers Service]
 
 [Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong") [Related Products Service]
-
-[Zachary Shold](https://github.com/Prollux "Zachary Shold") [Ratings And Reviews Service]
 
 ### License
 
