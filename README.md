@@ -30,7 +30,7 @@
 
 > My role in the remote team that developed trendee's backend was re-designing and optimizing it's Questions & Answers Service.
 
-I chose to implement a noSQL database to store trendee's 3.3mil Questions, 12.7mil Answers, & 3.5mil photos, as the needs of the application are primarily read heavy and non-transactional. I used a normalized data model with manual references, supported by **_Mongoose_**'s populate method, to to reduce decision points in the database and improve latency over the legacy system.
+I chose to implement a noSQL database to store trendee's 3mil Questions, 12mil Answers, & 3.5mil photos, as the needs of the application are primarily read heavy and non-transactional. I used a normalized data model with manual references, supported by **_Mongoose_**'s populate method, to to reduce decision points in the database and improve latency over the legacy system.
 
 > Check out [Operation](#Operation) for an overview of trendee's Q & A backend functionality or the [Preview](#Preview) below for a demonstration of it's stress test.
 
@@ -47,7 +47,7 @@ I chose to implement a noSQL database to store trendee's 3.3mil Questions, 12.7m
 
 ### Operation
 
-- Move an inappropriate question or answer to the Reported collection for admin review.
+- Send an inappropriate question or answer to a collection for review.
 
   `/qa/questions/:question_id/report`
 
