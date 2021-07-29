@@ -18,11 +18,13 @@
 
 ### Technologies
 
-| Stack      | Dependancies | Dev Dependancies |
-| ---------- | ------------ | ---------------- |
-| Node.js    | Mongoose     | Artillery        |
-| MongoDB    | dotenv-safe  | New Relic        |
-| Docker     | Express.js   | eslint -airbnb   |
+| Stack | Dependancies | Dev Dependancies |
+| ----- | ------------ | ---------------- |
+
+=======
+| Node.js | Mongoose | Artillery |
+| MongoDB | dotenv-safe | New Relic |
+| Docker | Express.js | eslint -airbnb |
 | JavaScript |
 | Express.js |
 
@@ -116,6 +118,8 @@ Tested using **_New Relic_** in production.
 [Krista Brock](https://github.com/sereigh "Krista Brock") [Questions And Answers Service]
 
 [Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong") [Related Products Service]
+
+[Zachary Shold](https://github.com/Prollux "Zachary Shold") [Ratings And Reviews Service]
 
 ### License
 
