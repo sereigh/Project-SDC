@@ -1,94 +1,126 @@
-# Project-Catwalk
+# trendee
 
-> An e-commerce API, redesigned and modernized to increase sales.
+> Backend service for a retail web portal, operationalized and scaled.
 
 #### Table of Contents
 
-- [Project-Catwalk](#Project-Catwalk)
+- [trendee](#trendee)
   - [Technologies](#Technologies)
   - [Development](#Development)
   - [Installation](#Installation)
   - [Operation](#Operation)
+  - [Docker](#Docker)
   - [Preview](#Preview)
     - [Screenshots](#Screenshots)
   - [Testing](#Testing)
-  - [Team Members](#Team_Members)
+  - [Authors](#Authors)
   - [License](#License)
 
 ### Technologies
 
 | Stack      | Dependancies | Dev Dependancies |
 | ---------- | ------------ | ---------------- |
-| CSS        | Axios        | Jest             |
-| HTML       | ReactJS      | axe-core         |
-| ReactJS    | ExpressJS    | webpack/babel    |
-| JavaScript | Cloudinary   | eslint -airbnb   |
+=======
+| Node.js    | Mongoose     | Artillery        |
+| MongoDB    | dotenv-safe  | New Relic        |
+| Docker     | Express.js   | eslint -airbnb   |
+| JavaScript |
+| Express.js |
 
 ### Development
 
-> My role in the remote team that developed Project-Catwalk was re-designing and implementing the client-facing features of the Questions & Answers Service.
+> My role in the remote team that developed trendee's backend was re-designing and optimizing the systems of the Questions & Answers Service.
 >
+> See the [Docker](#Docker) section for more information on how to use the images contained in this repository.
+
 > There was a unique need to display multiple pieces of relational data in a clean and user friendly way. I chose to display these data points in an accordion style UI to reduce scrolling and support user control.
 
 The panel functionality is controlled with a queue-like function I implemented with Javascript, and supported by pure CSS properties and ternary operators that switch element class names to show or hide information based on user interaction.
 
-> Check out [Operation](#Operation) for an overview of the services' functionality or the [Preview](#Preview) below for a demonstration of all Q & A features.
+To update and transfer the 3mil+ Questions, 12mil+ Answers, and 3mil+ Photos of legacy data, I created and automated an ETL process, using a combination of **_Javascript_**, **_Regex_**, and **_Node.js_** child processes.
+
+I chose to implement a noSQL database to store the data, as the needs of the application are primarily read heavy and non-transactional. Using a normalized data model with manual references, supported by **_Mongoose_**'s populate method, I was able to reduce decision points in the database and improve latency over the legacy system.
+
+Utilizing **_Docker_**, I created containers for the backend to maintain a reproducible baseline prior to load testing and blueprint future scalability when deployed to **_AWS_** clusters.
+
+> Check out [Operation](#Operation) for an overview of the services' backend functionality or the [Preview](#Preview) below for a demonstration of it's stress test.
 
 ### Installation
 
 1. Clone repository.
-2. From within the root directory:
+2. From within the **_QuestionsAndAnswers_** directory:
    `npm install`
-3. From within the root directory:
+3. From within the **_QuestionsAndAnswers_** directory:
    `npm start`
-4. View in browser:
-   `http://localhost:3000`
 
 ### Operation
 
--Type any phrase to search the product's questions and answers for more information. This will highlight the keywords and filter the results.
+- Send an inappropriate question or answer to a collection for review.
+  `/qa/questions/:question_id/report`
 
--Clicking any question will expand the panel to reveal it's corresponding answers list.
+  `/qa/answers/:answer_id/report`
 
--Vote for the helpfulness of an answer or question by clicking the `Helpful` button. Each vote increases the helpful rating by 1. A user can only vote once.
+- Vote a question or answer helpful.
+  `/qa/questions/:question_id/helpful`
 
--Click `Report` to notify site admins of an inappropriate answer.
+  `/qa/answers/:answer_id/helpful`
 
--Want to submit your own question or answer? Click `Add` and fill out the required fields in the pop up modal to submit and see it appear in the widget.
+- Retrieve all questions related to a product and their corresponding answers.
+  `/qa/questions`
 
--Cant find what you're looking for? Click `More` for answers or questions to expand the accordion. When you're finished, tap `Collapse` to close the panel.
+- Retrieve all answers related to a question.
+  `/qa/questions/:question_id/answers`
+
+  `/qa/questions/:question_id/report`
+
+  `/qa/answers/:answer_id/report`
+
+- Vote a question or answer helpful.
+
+  `/qa/questions/:question_id/helpful`
+
+  `/qa/answers/:answer_id/helpful`
+
+- Retrieve all questions related to a product and their corresponding answers.
+
+  `/qa/questions`
+
+- Retrieve all answers related to a question.
+
+  `/qa/questions/:question_id/answers`
+
+### Docker
+
+- ![Service Image](https://hub.docker.com/repository/docker/sereigh/qa-service "Service Image")
+- ![API Image](https://hub.docker.com/repository/docker/sereigh/qa-api "API Image")
+- ![DBMS Image](https://hub.docker.com/repository/docker/sereigh/qa-dbms "DBMS Image")
+- ![ETL Process Image](https://hub.docker.com/repository/docker/sereigh/qa-etl "ETL Process Image")
 
 ### Preview
 
-![Preview](qa-demo.gif)
+![Preview]()
 
 ### Screenshots
 
-![Questions&Answers Widget](qaOverview.png "Questions & Answers Widget")
-![Search Highlight Feature](qaSearchHighlight.png "Search Highlight Feature")
-![Pop-up Modal](qaModalForm.png "Pop-up Modal")
+![GET Response Times]( "GET Response Times")
+![UPDATE Response Times]( "UPDATE Response Times")
+![POST Response Times]( "POST Response Times")
 
 ### Testing
 
-This application was tested using snapshots in _Jest_.
+Tested using **_Artillery.io_** in development.
 
-From within the root directory:
-`npm test`
+Tested using **_New Relic_** in production.
 
-### Team Members
+### Authors
 
-- [Krista Brock](https://github.com/sereigh) [Questions & Answers Service]
-- [Samuel Cho](https://github.com/SamuelCho-ubf) [Related Products Service]
-- [Laura Nielsen](https://github.com/VioletGlen) [Overview & Cart Service]
-- [Kyle Johnson](https://github.com/KyleJohnson42) [Ratings & Reviews Service]
+[Krista Brock](https://github.com/sereigh "Krista Brock") [Questions And Answers Service]
+
+[Edwin Ekpenyong](https://github.com/moogiemode "Edwin Ekpenyong") [Related Products Service]
+
+[Zachary Shold](https://github.com/Prollux "Zachary Shold") [Ratings And Reviews Service]
 
 ### License
 
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)]
 
-- [Edwin]
-  https://github.com/moogiemode
-- [Zach]
-  https://github.com/Prollux
-- [Krista]
-  https://github.com/sereigh
