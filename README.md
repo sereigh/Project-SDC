@@ -18,12 +18,13 @@
 
 ### Technologies
 
-| Stack      | Dependancies | Dev Dependancies |
-| ---------- | ------------ | ---------------- |
+| Stack | Dependancies | Dev Dependancies |
+| ----- | ------------ | ---------------- |
+
 =======
-| Node.js    | Mongoose     | Artillery        |
-| MongoDB    | dotenv-safe  | New Relic        |
-| Docker     | Express.js   | eslint -airbnb   |
+| Node.js | Mongoose | Artillery |
+| MongoDB | dotenv-safe | New Relic |
+| Docker | Express.js | eslint -airbnb |
 | JavaScript |
 | Express.js |
 
@@ -123,4 +124,3 @@ Tested using **_New Relic_** in production.
 ### License
 
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)]
-
